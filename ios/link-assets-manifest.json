@@ -1,0 +1,53 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Caveat-VariableFont_wght.ttf",
+      "sha1": "82b10abbb30f9644797aada1802e9da7784e464e"
+    },
+    {
+      "path": "src/assets/fonts/index.tsx",
+      "sha1": "ed7c2da07592c8932d104cd6bead1e594d06d6e4"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Black.ttf",
+      "sha1": "ad9c434705a52d90ac5a770e591c2325fb48c2dc"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-BlackItalic.ttf",
+      "sha1": "88f974aa3e6d5e3d1fd563345be9e513809bb143"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Bold.ttf",
+      "sha1": "98c66622226025f539568865af96df5175e2979c"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-BoldItalic.ttf",
+      "sha1": "516e381cb5824e976db5cfb69d630a24f27a9ba6"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Italic.ttf",
+      "sha1": "9b14c390a8b40d941f62a971cb6d7d152e59154a"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Light.ttf",
+      "sha1": "9dfbddad5025d8d224b4939e54c1a4ac8ac6015b"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-LightItalic.ttf",
+      "sha1": "c7b6a26d9e3e165d3a079c669f374a4a7e01c0a7"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Medium.ttf",
+      "sha1": "25c429296b9d6eb242cba92d1ee7fae484b019cb"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-MediumItalic.ttf",
+      "sha1": "0670c90adbabf7dd8a9e4428dced5e0f2a54e97d"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    }
+  ]
+}
