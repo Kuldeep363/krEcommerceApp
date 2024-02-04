@@ -33,6 +33,9 @@ const Font = StyleSheet.create({
     },
     Caveat:{
         fontFamily:"Caveat-VariableFont_wght"
+    },
+    AcronymRegular:{
+        fontFamily:"acronymregular"
     }
 })
 

@@ -2,12 +2,24 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/acronymlight.ttf",
+      "sha1": "4edfe820a64f6e006b56c3b29363b37315b197ca"
+    },
+    {
+      "path": "src/assets/fonts/acronymregular.ttf",
+      "sha1": "fddf04152a86bb118a776d0c0a7e167c96a94205"
+    },
+    {
+      "path": "src/assets/fonts/acronymsemibold.ttf",
+      "sha1": "ae7ae81e1b0c43016cbe1332b967115105ae0022"
+    },
+    {
       "path": "src/assets/fonts/Caveat-VariableFont_wght.ttf",
       "sha1": "82b10abbb30f9644797aada1802e9da7784e464e"
     },
     {
       "path": "src/assets/fonts/index.tsx",
-      "sha1": "ed7c2da07592c8932d104cd6bead1e594d06d6e4"
+      "sha1": "13f90a94edf6e063eb8d07aa56ed483d951ae483"
     },
     {
       "path": "src/assets/fonts/Montserrat-Black.ttf",

@@ -1,9 +1,20 @@
-import {Image, ImageBackground, StyleSheet, Text, View, Platform} from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {SplashScreenBkg, WhiteLogo} from '../../assets/images';
-import Font from '../../assets/fonts'; 
+import { SplashScreenBkg, WhiteLogo } from '../../assets/images';
+import Font from '../../assets/fonts';
 
-const SplashScreen = () => {
+interface SplashScreen {
+    navigation: any;
+  }
+
+const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
+    setTimeout(()=>{
+        checkUser();
+    },2000)
+    async function checkUser(){
+        // const value = await 
+        navigation.replace("Onboarding")
+    }
   return (
     <ImageBackground
       source={SplashScreenBkg}
@@ -39,7 +50,7 @@ const styles = StyleSheet.create({
         height: 75,
     },
     text:{
-        ...Font.Montserrat,
+        ...Font.AcronymRegular,
         color:"#fefefe",
         fontSize:18,
       },

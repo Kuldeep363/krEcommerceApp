@@ -60,6 +60,9 @@
 		<string>Montserrat-Medium.ttf</string>
 		<string>Montserrat-MediumItalic.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
+		<string>acronymlight.ttf</string>
+		<string>acronymregular.ttf</string>
+		<string>acronymsemibold.ttf</string>
 	</array>
 </dict>
 </plist>
