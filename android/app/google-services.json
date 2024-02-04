@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "489028456",
+    "project_id": "emporium-79a79",
+    "storage_bucket": "emporium-79a79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489028456:android:ee4a746f2c9e1de505b4dd",
+        "android_client_info": {
+          "package_name": "com.krecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489028456-l63b9e33aiv615ajf3ntajm12lft2rvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.krecommerce",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "489028456-amk0bafie2kj3620ifqduermh2upg3gi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-ZOhaVsg7DOV33F2XDjcOZIgv2brqck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489028456-amk0bafie2kj3620ifqduermh2upg3gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

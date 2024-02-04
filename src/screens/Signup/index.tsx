@@ -1,32 +1,31 @@
 import {
   View,
   Text,
-  StyleSheet,
   SafeAreaView,
-  Image,
+  StyleSheet,
   StatusBar,
+  Image,
   TouchableWithoutFeedback,
-  Platform,
+  TextInput,
 } from 'react-native';
 import React from 'react';
-import {Logo, SigninImg} from '../../assets/images';
 import {COLORS, FONTS} from '../../config/theme';
+import {Logo, SignupImg} from '../../assets/images';
+import PrimaryButton from '../../extraComponents/PrimaryButton';
+import InputField from '../../extraComponents/InputField';
 import Separator from '../../extraComponents/Separator';
 import GoogleBtn from '../../extraComponents/socialMediaSignup/GoogleBtn';
-import InputField from '../../extraComponents/InputField';
-import PrimaryButton from '../../extraComponents/PrimaryButton';
 import SocialMediaLogin from '../../extraComponents/socialMediaSignup/SocialMediaLogin';
 import { _signinWithGoogle } from '../../config/firebase/GoogleSignin';
 
-interface Signin {
+interface Signup {
   navigation: any;
 }
-
-const Signin: React.FC<Signin> = ({navigation}) => {
-  const navigateToSignup = () => {
-    navigation.navigate('Signup');
+const Signup: React.FC<Signup> = ({navigation}) => {
+  const navigateToSignin = () => {
+    navigation.navigate('Signin');
   };
-  const googleLogin = async()=>{
+  const googleSignup = async()=>{
     _signinWithGoogle().then(data=>{
       if(!data){
         console.log("=> Google Login error::No data found",)
@@ -52,7 +51,7 @@ const Signin: React.FC<Signin> = ({navigation}) => {
           />
         </View>
         <Image
-          source={SigninImg}
+          source={SignupImg}
           style={{
             width: '100%',
             height: '70%',
@@ -61,25 +60,25 @@ const Signin: React.FC<Signin> = ({navigation}) => {
         />
       </View>
       <View style={styles.bottomSection}>
-        <Text style={styles.heading}>Welcome to Emporium</Text>
+        <Text style={styles.heading}>Create an account</Text>
         <Text style={styles.subHeading}>
-          Your one-stop destination for all your needs.
+          Join <Text style={{color: COLORS.primary1}}>Emporium</Text> and get
+          exclusive discounts and deals available only to our members!
         </Text>
-
         <View style={styles.signupForm}>
           <InputField placeholder="Email" keyboardType="email-address" />
           <InputField placeholder="Password" secureTextEntry={true} />
-          <PrimaryButton text="Login" onPress={() => {}} />
-          <TouchableWithoutFeedback onPress={navigateToSignup}>
-            <Text style={styles.signupText}>
-              Don't have an account?
-              <Text style={styles.signupLink}> Signup</Text>
+          <PrimaryButton text="Create now" onPress={() => {}} />
+          <TouchableWithoutFeedback onPress={navigateToSignin}>
+            <Text style={styles.signinText}>
+              Already have an account?
+              <Text style={styles.signinLink}> Signin</Text>
             </Text>
           </TouchableWithoutFeedback>
         </View>
-        <Separator text="or" />
-        <View style={{width: '100%', marginTop: 10}}>
-          <SocialMediaLogin googleLogin={googleLogin} />
+        <Separator text={"or"} />
+        <View style={{width:"100%",marginTop:10}}>
+          <SocialMediaLogin googleLogin={googleSignup}/>
         </View>
       </View>
     </SafeAreaView>
@@ -92,7 +91,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   topSection: {
-    flex: 0.65,
+    flex: 0.5,
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -123,19 +122,18 @@ const styles = StyleSheet.create({
     color: COLORS.subText,
     textAlign: 'center',
   },
-  signupText: {
-    fontFamily: FONTS.AcronymLight,
-    textAlign: 'center',
-  },
-  signupLink: {
-    color: COLORS.primary1,
-    fontWeight: 'bold',
-  },
   signupForm: {
     marginVertical: 10,
     width: '100%',
     gap: 15,
   },
+  signinText: {
+    fontFamily: FONTS.AcronymLight,
+    textAlign:"center"
+  },
+  signinLink: {
+    color: COLORS.primary1,
+    fontWeight: 'bold',
+  },
 });
-
-export default Signin;
+export default Signup;

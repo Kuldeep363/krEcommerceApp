@@ -29,7 +29,7 @@ const OnBoardingScreens: React.FC<OnBoardingScreens> = ({navigation})=> {
   };
 
   const navigateToSigning = ()=>{
-    navigation.navigate("Signin")
+    navigation.replace("Signin")
   }
   const onViewableItemsChanged = useRef(
     ({viewableItems}: {viewableItems: any}) => {

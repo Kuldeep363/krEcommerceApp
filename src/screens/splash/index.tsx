@@ -13,7 +13,7 @@ const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
   }, 2000);
   async function checkUser() {
     // const value = await
-    // navigation.replace('Onboarding');
+    navigation.replace('Onboarding');
   }
   return (
     <ImageBackground
