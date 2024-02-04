@@ -1,7 +1,6 @@
 import {StyleSheet, Text, Touchable, TouchableWithoutFeedback, View} from 'react-native';
 import React from 'react';
-import {colors} from '../config/theme';
-import Font from '../assets/fonts';
+import {COLORS, FONTS} from '../config/theme';
 
 interface PrimaryGradientButton {
   text: string;
@@ -25,11 +24,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // overflow: 'hidden',
-    backgroundColor: colors.primary1,
+    backgroundColor: COLORS.primary1,
     paddingHorizontal: 20,
     paddingVertical: 12,
     width: '100%',
-    shadowColor: colors.primary1,
+    shadowColor: COLORS.primary1,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 16,
-    ...Font.AcronymRegular,
+    fontFamily: FONTS.AcronymRegular,
   },
 });
 

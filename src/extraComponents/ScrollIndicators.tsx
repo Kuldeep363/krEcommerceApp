@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import { colors } from '../config/theme';
+import { COLORS } from '../config/theme';
 
 interface ScrollIndicators {
   count: number;
@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
     borderRadius:15,
   },
   activeIndicator:{
-    backgroundColor:colors.balck
+    backgroundColor:COLORS.balck
   },
   inactiveIndicator:{
-    backgroundColor:colors.subText
+    backgroundColor:COLORS.subText
   }
   
 });

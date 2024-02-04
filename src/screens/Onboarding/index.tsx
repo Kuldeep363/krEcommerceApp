@@ -10,12 +10,14 @@ import {
 } from 'react-native';
 import React, {createRef, useRef, useState} from 'react';
 import {OnBoardingScreensData} from '../../config/localAppData';
-import Font from '../../assets/fonts';
-import {colors} from '../../config/theme';
+import {COLORS, FONTS} from '../../config/theme';
 import ScrollIndicators from '../../extraComponents/ScrollIndicators';
 import PrimaryButton from '../../extraComponents/PrimaryButton';
 
-export default function OnBoardingScreens() {
+interface OnBoardingScreens {
+  navigation: any;
+} 
+const OnBoardingScreens: React.FC<OnBoardingScreens> = ({navigation})=> {
   const {width, height} = Dimensions.get('screen');
 
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -26,6 +28,9 @@ export default function OnBoardingScreens() {
     flatListRef.current?.scrollToEnd({animated: true});
   };
 
+  const navigateToSigning = ()=>{
+    navigation.navigate("Signin")
+  }
   const onViewableItemsChanged = useRef(
     ({viewableItems}: {viewableItems: any}) => {
       if (viewableItems.length > 0) {
@@ -52,16 +57,16 @@ export default function OnBoardingScreens() {
           }}
         />
         <Text
-          style={{...Font.AcronymRegular, fontSize: 20, color: colors.balck}}>
+          style={{fontFamily: FONTS.AcronymRegular, fontSize: 20, color: COLORS.balck}}>
           {item.heading}
         </Text>
         <Text
           style={{
-            ...Font.AcronymRegular,
+            fontFamily:FONTS.AcronymRegular,
             fontSize: 14,
             textAlign: 'center',
             paddingHorizontal: 10,
-            color: colors.subText,
+            color: COLORS.subText,
           }}>
           {item.subHeading}
         </Text>
@@ -106,7 +111,7 @@ export default function OnBoardingScreens() {
       {
         currentIndex === OnBoardingScreensData.length-1 ? 
         <View style={styles.button}>
-          <PrimaryButton text="Get started" onPress={() => {}} />
+          <PrimaryButton text="Get started" onPress={navigateToSigning} />
         </View>
         :
         null
@@ -136,6 +141,8 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   skipBtnText: {
-    ...Font.AcronymRegular,
+    fontFamily: FONTS.AcronymRegular,
   },
 });
+
+export default OnBoardingScreens

@@ -1,20 +1,20 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import { SplashScreenBkg, WhiteLogo } from '../../assets/images';
-import Font from '../../assets/fonts';
+import {SplashScreenBkg, WhiteLogo} from '../../assets/images';
+import { FONTS } from '../../config/theme';
 
 interface SplashScreen {
-    navigation: any;
-  }
+  navigation: any;
+}
 
 const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
-    setTimeout(()=>{
-        checkUser();
-    },2000)
-    async function checkUser(){
-        // const value = await 
-        navigation.replace("Onboarding")
-    }
+  setTimeout(() => {
+    checkUser();
+  }, 2000);
+  async function checkUser() {
+    // const value = await
+    // navigation.replace('Onboarding');
+  }
   return (
     <ImageBackground
       source={SplashScreenBkg}
@@ -25,11 +25,7 @@ const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
       }}
       resizeMode={'cover'}>
       <View style={styles.logoContainer}>
-        <Image
-          source={WhiteLogo}
-          resizeMode={'contain'}
-          style={styles.logo}
-        />
+        <Image source={WhiteLogo} resizeMode={'contain'} style={styles.logo} />
         <Text style={styles.text}>Emporium</Text>
       </View>
       <Text style={styles.enterpriseText}>A product by KR enterprises</Text>
@@ -40,26 +36,25 @@ const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
 export default SplashScreen;
 
 const styles = StyleSheet.create({
-    logoContainer:{
-        gap:10,
-        alignItems:"center",
-    }
-    ,
-    logo:{
-        width: 75,
-        height: 75,
-    },
-    text:{
-        ...Font.AcronymRegular,
-        color:"#fefefe",
-        fontSize:18,
-      },
-      enterpriseText:{
-        position:"absolute",
-        bottom:5,
-        color:"#fefefe",
-        textTransform:"uppercase",
-        fontSize:12,
-        ...Font.Caveat
-      }
-})
+  logoContainer: {
+    gap: 10,
+    alignItems: 'center',
+  },
+  logo: {
+    width: 75,
+    height: 75,
+  },
+  text: {
+    fontFamily:FONTS.AcronymRegular,
+    color: '#fefefe',
+    fontSize: 18,
+  },
+  enterpriseText: {
+    position: 'absolute',
+    bottom: 5,
+    color: '#fefefe',
+    textTransform: 'uppercase',
+    fontSize: 12,
+    fontFamily:FONTS.Caveat,
+  },
+});
