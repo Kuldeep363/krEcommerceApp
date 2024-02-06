@@ -6,31 +6,48 @@ import {
   StatusBar,
   Image,
   TouchableWithoutFeedback,
-  TextInput,
+  TextInputChangeEventData,
+  NativeSyntheticEvent
 } from 'react-native';
-import React from 'react';
-import {COLORS, FONTS} from '../../config/theme';
-import {Logo, SignupImg} from '../../assets/images';
+import React, { useState } from 'react';
+import { COLORS, FONTS } from '../../config/theme';
+import { Logo, SignupImg } from '../../assets/images';
 import PrimaryButton from '../../extraComponents/PrimaryButton';
 import InputField from '../../extraComponents/InputField';
 import Separator from '../../extraComponents/Separator';
-import GoogleBtn from '../../extraComponents/socialMediaSignup/GoogleBtn';
 import SocialMediaLogin from '../../extraComponents/socialMediaSignup/SocialMediaLogin';
 import { _signinWithGoogle } from '../../config/firebase/GoogleSignin';
+import { _storeJSONDataIntoAsyncStorage } from '../../config/asyncStorage';
+import { useToast } from 'react-native-toast-notifications';
 
 interface Signup {
   navigation: any;
 }
 const Signup: React.FC<Signup> = ({navigation}) => {
+  const [formData, setFormData] = useState({
+    email:"",
+    password:""
+  })
+  const handleFormDataChange = (key:string,value:string)=>{
+    console.log(value)
+    setFormData({...formData,[key]:value})
+  }
   const navigateToSignin = () => {
-    navigation.navigate('Signin');
+    navigation.replace('Signin');
   };
+  const toast = useToast();
   const googleSignup = async()=>{
     _signinWithGoogle().then(data=>{
       if(!data){
         console.log("=> Google Login error::No data found",)
       }else{
-        console.log("=> Google login success::",data)
+        _storeJSONDataIntoAsyncStorage("userInfo",data);
+        toast.show("Created successfully",{
+          type:"success"
+        })
+        setTimeout(()=>{
+          navigation.replace("Home");
+        },2000);
       }
     }).catch(err=>{
       console.log(err)
@@ -66,8 +83,8 @@ const Signup: React.FC<Signup> = ({navigation}) => {
           exclusive discounts and deals available only to our members!
         </Text>
         <View style={styles.signupForm}>
-          <InputField placeholder="Email" keyboardType="email-address" />
-          <InputField placeholder="Password" secureTextEntry={true} />
+          <InputField placeholder="Email" keyboardType="email-address" value={formData.email} handleChange={handleFormDataChange} name={"email"} />
+          <InputField placeholder="Password" secureTextEntry={true} value={formData.password} handleChange={handleFormDataChange} name={"password"} />
           <PrimaryButton text="Create now" onPress={() => {}} />
           <TouchableWithoutFeedback onPress={navigateToSignin}>
             <Text style={styles.signinText}>
@@ -76,7 +93,7 @@ const Signup: React.FC<Signup> = ({navigation}) => {
             </Text>
           </TouchableWithoutFeedback>
         </View>
-        <Separator text={"or"} />
+        <Separator />
         <View style={{width:"100%",marginTop:10}}>
           <SocialMediaLogin googleLogin={googleSignup}/>
         </View>
@@ -91,7 +108,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   topSection: {
-    flex: 0.5,
+    flex: 0.6,
     justifyContent: 'space-between',
     alignItems: 'center',
   },
