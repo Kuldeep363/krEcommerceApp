@@ -1,6 +1,8 @@
 import { View, Text } from 'react-native';
 import React, { useCallback, useEffect, useState } from 'react';
 import { _getJSONDataFromAsyncStorage } from '../../config/asyncStorage';
+import { COLORS } from '../../config/theme';
+import Loader from '../../extraComponents/lottieAnimations/Loader';
 
 const Home:React.FC = () => {
   const [userData, setUserData] = useState<any>({});
@@ -14,6 +16,7 @@ const Home:React.FC = () => {
   return (
     <View>
       <Text>{userData?.givenName}</Text>
+      <Loader />
     </View>
   )
 }
