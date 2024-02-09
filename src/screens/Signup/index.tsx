@@ -60,17 +60,17 @@ const Signup: React.FC<Signup> = ({navigation}) => {
       _storeJSONDataIntoAsyncStorage("userInfo",response?.data)
       toast.show("Account created",{
         type:"success",
-        duration:1000
+        duration:800
       })
       setTimeout(() => {
         toast.show("Logging in",{
           type:"success",
-          duration:1000
+          duration:800
         })
-      }, 1000);
+      }, 801);
       setTimeout(() => {
         navigation.replace('Home');
-      }, 2000);
+      }, 1602);
     }else{
       toast.show(response.msg,{
         type:"danger"

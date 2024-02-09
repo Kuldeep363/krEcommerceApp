@@ -20,6 +20,8 @@ import {_signinWithGoogle} from '../../config/firebase/GoogleSignin';
 import {_storeJSONDataIntoAsyncStorage} from '../../config/asyncStorage';
 import {useToast} from 'react-native-toast-notifications';
 import Loader from '../../extraComponents/lottieAnimations/Loader';
+import {validateFormData} from '../../utils';
+import {_SigninUser} from '../../config/firebase/SigningSignup';
 
 interface Signin {
   navigation: any;
@@ -39,6 +41,36 @@ const Signin: React.FC<Signin> = ({navigation}) => {
     navigation.replace('Signup');
   };
   const toast = useToast();
+
+  const signin = async () => {
+    setLoading(true);
+    const validation = validateFormData(formData);
+    if (!validation.status) {
+      setLoading(false);
+      toast.show(validation.msg, {
+        type: 'danger',
+      });
+      return;
+    }
+    const response = await _SigninUser(formData.email, formData.password);
+    // console.log(response);
+    if (response.status) {
+      _storeJSONDataIntoAsyncStorage('userInfo', response?.data);
+      toast.show('Logged in', {
+        type: 'success',
+        duration: 500,
+      });
+      setTimeout(() => {
+        navigation.replace('Home');
+      }, 600);
+    } else {
+      toast.show(response.msg, {
+        type: 'danger',
+      });
+    }
+    setLoading(false);
+  };
+
   const googleLogin = async () => {
     setLoading(true);
     _signinWithGoogle()
@@ -106,7 +138,7 @@ const Signin: React.FC<Signin> = ({navigation}) => {
             name={'password'}
           />
 
-          <PrimaryButton text="Login" onPress={() => {}} />
+          <PrimaryButton text="Login" onPress={signin} />
           <TouchableWithoutFeedback onPress={navigateToSignup}>
             <Text style={styles.signupText}>
               Don't have an account?

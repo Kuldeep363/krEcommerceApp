@@ -3,6 +3,7 @@ import React from 'react';
 import {SplashScreenBkg, WhiteLogo} from '../../assets/images';
 import { FONTS } from '../../config/theme';
 import { checkLogin } from '../../config/api';
+import { checkIsOnBoardingDone } from '../../utils';
 
 interface SplashScreen {
   navigation: any;
@@ -16,7 +17,14 @@ const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
     checkLogin()
     .then(res=>{
       if(res) navigation.replace('Home');
-      else navigation.replace('Onboarding');
+      else {
+        checkIsOnBoardingDone()
+        .then(res=>{
+          if(res) navigation.replace('Signin');
+          else navigation.replace('Onboarding');
+        })
+
+      };
     })
   }
   return (

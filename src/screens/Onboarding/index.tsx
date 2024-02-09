@@ -13,6 +13,7 @@ import {OnBoardingScreensData} from '../../config/localAppData';
 import {COLORS, FONTS} from '../../config/theme';
 import ScrollIndicators from '../../extraComponents/ScrollIndicators';
 import PrimaryButton from '../../extraComponents/PrimaryButton';
+import { _setOnboardingTrue } from '../../config/asyncStorage';
 
 interface OnBoardingScreens {
   navigation: any;
@@ -28,8 +29,11 @@ const OnBoardingScreens: React.FC<OnBoardingScreens> = ({navigation})=> {
     flatListRef.current?.scrollToEnd({animated: true});
   };
 
-  const navigateToSigning = ()=>{
-    navigation.replace("Signin")
+  const navigateToSigning = async ()=>{
+    _setOnboardingTrue()
+    .then(()=>{
+      navigation.replace("Signin")
+    })
   }
   const onViewableItemsChanged = useRef(
     ({viewableItems}: {viewableItems: any}) => {

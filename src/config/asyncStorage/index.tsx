@@ -49,3 +49,33 @@ export const _getJSONDataFromAsyncStorage = async (
     return null;
   }
 };
+
+export const _removeFromAsyncStorage = async (key:string):Promise<any|null>=>{
+  try{
+    await AsyncStorage.removeItem(key);
+    return true;
+  }catch(e){  
+    console.log(e);
+    return false
+  }
+}
+
+export const _removeMultipleFromAsyncStorage = async (key:Array<string>):Promise<any|null>=>{
+  try{
+    await AsyncStorage.multiRemove(key);
+    return true;
+  }catch(e){  
+    console.log(e);
+    return false
+  }
+}
+
+export const _setOnboardingTrue = async()=>{
+  try{
+    await AsyncStorage.setItem("onboarding","1");
+    return true;
+  }catch(e){
+    console.log(e);
+    return false;
+  }
+}

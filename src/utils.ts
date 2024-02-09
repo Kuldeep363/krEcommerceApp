@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 export const validateFormData = (formData: {
   email: string;
   password: string;
@@ -34,3 +36,14 @@ export const validateFormData = (formData: {
     msg: '',
   };
 };
+
+export const checkIsOnBoardingDone = async()=>{
+  try{
+    const onboarding = await AsyncStorage.getItem("onboarding");
+    if(onboarding === "1") return true;
+    return false;
+  }catch(e){
+    console.log(`=> on-boarding check: ${e}`);
+    return false;
+  }
+}
