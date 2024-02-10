@@ -57,7 +57,7 @@ const Signup: React.FC<Signup> = ({navigation}) => {
     const response = await _SignupUser(formData.email,formData.password)
     // console.log(response);
     if(response.status){
-      _storeJSONDataIntoAsyncStorage("userInfo",response?.data)
+      _storeJSONDataIntoAsyncStorage("userInfo",{user:response?.data})
       toast.show("Account created",{
         type:"success",
         duration:800
@@ -69,7 +69,7 @@ const Signup: React.FC<Signup> = ({navigation}) => {
         })
       }, 801);
       setTimeout(() => {
-        navigation.replace('Home');
+        navigation.replace('BottomTab');
       }, 1602);
     }else{
       toast.show(response.msg,{
@@ -91,7 +91,7 @@ const Signup: React.FC<Signup> = ({navigation}) => {
             type: 'success',
           });
           setTimeout(() => {
-            navigation.replace('Home');
+            navigation.replace('BottomTab');
           }, 2000);
         }
       })

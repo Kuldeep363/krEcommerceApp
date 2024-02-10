@@ -55,13 +55,13 @@ const Signin: React.FC<Signin> = ({navigation}) => {
     const response = await _SigninUser(formData.email, formData.password);
     // console.log(response);
     if (response.status) {
-      _storeJSONDataIntoAsyncStorage('userInfo', response?.data);
+      _storeJSONDataIntoAsyncStorage('userInfo', {user:response?.data});
       toast.show('Logged in', {
         type: 'success',
         duration: 500,
       });
       setTimeout(() => {
-        navigation.replace('Home');
+        navigation.replace('BottomTab');
       }, 600);
     } else {
       toast.show(response.msg, {
@@ -78,12 +78,13 @@ const Signin: React.FC<Signin> = ({navigation}) => {
         if (!data) {
           console.log('=> Google Login error::No data found');
         } else {
+          console.log("storing:",data)
           _storeJSONDataIntoAsyncStorage('userInfo', data);
           toast.show('Logged in', {
             type: 'success',
           });
           setTimeout(() => {
-            navigation.replace('Home');
+            navigation.replace('BottomTab');
           }, 2000);
         }
       })

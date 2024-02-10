@@ -1,13 +1,13 @@
 import React from 'react';
 import SplashScreen from './src/screens/Splash';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signin from './src/screens/Signin';
 import OnBoardingScreens from './src/screens/Onboarding';
 import Signup from './src/screens/Signup';
-import Home from './src/screens/Home';
-import {ToastProvider} from 'react-native-toast-notifications';
+import { ToastProvider } from 'react-native-toast-notifications';
 import { FONTS } from './src/config/theme';
+import BottomTab from './src/screens/BottomTab';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,8 +53,8 @@ function App(): React.JSX.Element {
             }}
           />
           <Stack.Screen
-            name="Home"
-            component={Home}
+            name="BottomTab"
+            component={BottomTab}
             options={{
               headerShown: false,
             }}

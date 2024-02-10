@@ -18,4 +18,24 @@ const OnBoardingScreensData = [
     image: require("../../assets/images/superFastDelivery.png")
   },
 ];
-export {OnBoardingScreensData}
+
+const HomeBanners = [
+  {
+    url:"https://i.ibb.co/1ZCcwpf/slider-2.jpg"
+  },
+  {
+    url:"https://i.ibb.co/bs8NKG5/slider-1.jpg"
+  },
+  {
+    url:"https://i.ibb.co/FJ4whhZ/slider-5.jpg"
+  },
+  {
+    url:"https://i.ibb.co/5LXrRhL/slider-3.jpg"
+  },
+  {
+    url:"https://i.ibb.co/xfZDTVw/slider-4.jpg"
+  },
+]
+
+
+export {OnBoardingScreensData,HomeBanners}

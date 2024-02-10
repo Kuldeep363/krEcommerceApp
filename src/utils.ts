@@ -47,3 +47,7 @@ export const checkIsOnBoardingDone = async()=>{
     return false;
   }
 }
+
+export const getName = (data:string)=>{
+      return data[0]?.toUpperCase() + data?.slice(1);
+}

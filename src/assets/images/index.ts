@@ -5,6 +5,7 @@ const SignupImg = require("./signup.png");
 const Logo = require("./logo.png");
 const GoogleLogo = require("./googleLogo.png");
 const AppleLogo = require("./appleLogo.png");
+const AvatarImg = require("./avatar.png");
 
 export {
     SplashScreenBkg,
@@ -13,5 +14,6 @@ export {
     Logo,
     SignupImg,
     GoogleLogo,
-    AppleLogo
+    AppleLogo,
+    AvatarImg
 }

@@ -5,6 +5,7 @@ const COLORS = {
   primary2: '#393F71',
   gray: '#83829A',
   gray2: '#C1C0C8',
+  primaryLight:"#BBBEDD",
 
   white: '#F3F4F8',
   lightWhite: '#FAFAFC',
@@ -18,6 +19,8 @@ const FONTS = {
   AcronymMedium: 'acronymsemibold',
   Caveat: 'Caveat-VariableFont_wght',
 };
+
+const SAFE_AREA = 16;
 
 const SHADOWS = {
   small: {
@@ -42,4 +45,4 @@ const SHADOWS = {
   },
 };
 
-export {COLORS, FONTS, SHADOWS};
+export {COLORS, FONTS, SHADOWS, SAFE_AREA};

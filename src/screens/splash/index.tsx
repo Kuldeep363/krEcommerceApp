@@ -16,7 +16,7 @@ const SplashScreen: React.FC<SplashScreen> = ({navigation}) => {
   async function checkUser() {
     checkLogin()
     .then(res=>{
-      if(res) navigation.replace('Home');
+      if(res) navigation.replace('BottomTab');
       else {
         checkIsOnBoardingDone()
         .then(res=>{
