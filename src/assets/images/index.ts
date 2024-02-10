@@ -6,6 +6,7 @@ const Logo = require("./logo.png");
 const GoogleLogo = require("./googleLogo.png");
 const AppleLogo = require("./appleLogo.png");
 const AvatarImg = require("./avatar.png");
+const FallbackImage = require("./fallback-banner.jpg");
 
 export {
     SplashScreenBkg,
@@ -15,5 +16,6 @@ export {
     SignupImg,
     GoogleLogo,
     AppleLogo,
-    AvatarImg
+    AvatarImg,
+    FallbackImage
 }

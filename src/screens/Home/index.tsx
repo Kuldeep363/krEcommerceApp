@@ -80,7 +80,7 @@ const Home: React.FC<Home> = ({navigation}) => {
           </TouchableWithoutFeedback>
         </View>
       </LinearGradient>
-      <View style={styles.headerSection}>
+      <View style={styles.bannerSection}>
         <Banners />
       </View>
       <TouchableOpacity onPress={signout}>
@@ -116,6 +116,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 5,
   },
+  bannerSection:{
+    paddingHorizontal:SAFE_AREA
+  }
 });
 
 export default Home;

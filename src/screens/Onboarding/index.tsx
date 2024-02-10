@@ -21,7 +21,7 @@ interface OnBoardingScreens {
 const OnBoardingScreens: React.FC<OnBoardingScreens> = ({navigation})=> {
   const {width, height} = Dimensions.get('screen');
 
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = createRef<FlatList<any>>();
 
   const scrollToEnd = () => {
