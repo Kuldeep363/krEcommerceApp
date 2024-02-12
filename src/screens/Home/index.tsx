@@ -80,7 +80,18 @@ const Home: React.FC<Home> = ({navigation}) => {
           </TouchableWithoutFeedback>
         </View>
       </LinearGradient>
-      <View style={styles.bannerSection}>
+      <View style={styles.section}>
+        <TouchableOpacity style={styles.searchBox} onPressIn={()=>navigation.navigate("Search")}>
+          <AntDesign name='search1' size={16} />
+          <Text
+          style={{
+            fontFamily:FONTS.AcronymRegular,
+            color:COLORS.gray
+          }}
+          >Search for "parada perfumes"</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.section}>
         <Banners />
       </View>
       <TouchableOpacity onPress={signout}>
@@ -116,8 +127,21 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 5,
   },
-  bannerSection:{
+  section:{
     paddingHorizontal:SAFE_AREA
+  },
+  searchBox:{
+    borderWidth:1,
+    borderColor:COLORS.gray2,
+    paddingHorizontal:10,
+    paddingVertical:10,
+    borderRadius:10,
+    marginBottom:10,
+    marginRight:10,
+    backgroundColor:COLORS.white,
+    flexDirection:"row",
+    gap:15,
+    alignItems:"center"
   }
 });
 
