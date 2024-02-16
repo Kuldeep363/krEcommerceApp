@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { COLORS, FONTS } from '../../config/theme';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import UseAnimations from 'react-useanimations';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +23,7 @@ const BOTTOM_TAB_BAR_ICONS: any = {
   Search: 'search1',
   Account: 'user',
   Cart: 'shoppingcart',
+  Categories: 'appstore-o',
 };
 
 const MyTabBar: React.FC<MyTabBar> = ({state, descriptors, navigation}) => {
@@ -116,6 +118,7 @@ const BottomTab: React.FC = () => {
       }}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Home} />
+      <Tab.Screen name="Categories" component={Home} />
       <Tab.Screen name="Cart" component={Home} />
       <Tab.Screen name="Account" component={Home} />
     </Tab.Navigator>
